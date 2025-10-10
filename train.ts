@@ -29,3 +29,17 @@
 // console.log("version 2: ", getHighestIndex2([-1]));
 // console.log("version 2: ", getHighestIndex2([]));
 // console.log("version 2: ", getHighestIndex2([-5, -21, 1.2, -201, 8]));
+
+// // MITask-H:
+//getPositive([1, -4, 2]) return qiladi "12"
+
+function getPositive(arr: number[]): string {
+    let result: string = "";
+    arr.forEach((ele) => {
+        ele >= 0 ? (result += ele) : null;
+    });
+    return result;
+}
+
+console.log("result: ", getPositive([1, -4, 2]));
+console.log("result: ", getPositive([1, -4, 2, 0, -27]));
