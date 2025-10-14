@@ -30,16 +30,29 @@
 // console.log("version 2: ", getHighestIndex2([]));
 // console.log("version 2: ", getHighestIndex2([-5, -21, 1.2, -201, 8]));
 
-// // MITask-H:
-//getPositive([1, -4, 2]) return qiladi "12"
+// // // MITask-H:
+// //getPositive([1, -4, 2]) return qiladi "12"
 
-function getPositive(arr: number[]): string {
+// function getPositive(arr: number[]): string {
+//     let result: string = "";
+//     arr.forEach((ele) => {
+//         ele >= 0 ? (result += ele) : null;
+//     });
+//     return result;
+// }
+// console.log("result: ", getPositive([1, -4, 2]));
+// console.log("result: ", getPositive([1, -4, 2, 0, -27]));
+
+// H2-TASK
+// getDigits("m14i1t") return qiladi "141"
+const getDigits = (str: string) => {
     let result: string = "";
-    arr.forEach((ele) => {
-        ele >= 0 ? (result += ele) : null;
-    });
+    for (let letter of str) {
+        if (letter >= "0" && letter <= "9") {
+            result += letter;
+        }
+    }
     return result;
-}
+};
 
-console.log("result: ", getPositive([1, -4, 2]));
-console.log("result: ", getPositive([1, -4, 2, 0, -27]));
+console.log(getDigits("asdjlasdkljhaksdj21312312j3b1 23k1j23b"));
