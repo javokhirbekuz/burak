@@ -43,16 +43,26 @@
 // console.log("result: ", getPositive([1, -4, 2]));
 // console.log("result: ", getPositive([1, -4, 2, 0, -27]));
 
-// H2-TASK
-// getDigits("m14i1t") return qiladi "141"
-const getDigits = (str: string) => {
-    let result: string = "";
-    for (let letter of str) {
-        if (letter >= "0" && letter <= "9") {
-            result += letter;
-        }
-    }
-    return result;
-};
+// // H2-TASK
+// // getDigits("m14i1t") return qiladi "141"
+// const getDigits = (str: string) => {
+//     let result: string = "";
+//     for (let letter of str) {
+//         if (letter >= "0" && letter <= "9") {
+//             result += letter;
+//         }
+//     }
+//     return result;
+// };
 
-console.log(getDigits("asdjlasdkljhaksdj21312312j3b1 23k1j23b"));
+// console.log(getDigits("asdjlasdkljhaksdj21312312j3b1 23k1j23b"));
+
+/**  Project Standards:
+ *  - Logging standards
+ *  - Naming standars:
+ *      function, method, variable => CAMEL      goHome
+ *      class => PASCAL                          MemberService
+ *      folder => KEBAB
+ *      css => SNAKE                             button_style
+ *  - Error handling
+ **/

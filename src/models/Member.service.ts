@@ -1,4 +1,4 @@
-import memberSchem from "../schema/Member.Model";
+import memberSchem from "../schema/Member.model";
 class MemberService {
     constructor() {}
 }
