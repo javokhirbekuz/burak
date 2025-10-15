@@ -62,7 +62,7 @@
  *  - Naming standars:
  *      function, method, variable => CAMEL      goHome
  *      class => PASCAL                          MemberService
- *      folder => KEBAB
+ *      folder, file => KEBAB                    router-admin.ts
  *      css => SNAKE                             button_style
  *  - Error handling
  **/
