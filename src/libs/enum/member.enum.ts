@@ -3,7 +3,7 @@ export enum MemberType {
     RESTAURANT = "RESTAURANT",
 }
 export enum MemberStatus {
-    ACTIVE = "BLOCK",
+    ACTIVE = "ACTIVE",
     BLOCK = "BLOCK",
     DELETE = "DELETE",
 }

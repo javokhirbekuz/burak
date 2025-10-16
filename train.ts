@@ -66,3 +66,7 @@
  *      css => SNAKE                             button_style
  *  - Error handling
  **/
+
+/** Traditional API
+ *  Rest API
+ *  GraphQL API **/
