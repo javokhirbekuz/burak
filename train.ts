@@ -57,16 +57,25 @@
 
 // console.log(getDigits("asdjlasdkljhaksdj21312312j3b1 23k1j23b"));
 
-/**  Project Standards:
- *  - Logging standards
- *  - Naming standars:
- *      function, method, variable => CAMEL      goHome
- *      class => PASCAL                          MemberService
- *      folder, file => KEBAB                    router-admin.ts
- *      css => SNAKE                             button_style
- *  - Error handling
- **/
+// MITask-I
+// majorityElement([1,2,3,4,5,4,3,4]) return 4
+const majorityElement = (nums: number[]): number => {
+  const countMap: Map<number, number> = new Map();
+  for (const num of nums) {
+    countMap.set(num, (countMap.get(num) || 0) + 1);
+  }
+  let maxCount = 0;
+  let majorityNum = nums[0];
 
-/** Traditional API
- *  Rest API
- *  GraphQL API **/
+  for (const [num, count] of countMap) {
+    if (count > maxCount) {
+      maxCount = count;
+      majorityNum = num;
+    }
+  }
+  return majorityNum;
+};
+const nums1: number[] = [3, 1, 2, 3, 4, 5, 4, 3, 4, 4];
+console.log("majorityNum", majorityElement(nums1));
+const nums2: number[] = [12, 123, 32, 45, 5, 6, 7, 1, 2, 34, 4, 3, 5, 7];
+console.log("majorityNum", majorityElement(nums2));
