@@ -57,25 +57,43 @@
 
 // console.log(getDigits("asdjlasdkljhaksdj21312312j3b1 23k1j23b"));
 
-// MITask-I
-// majorityElement([1,2,3,4,5,4,3,4]) return 4
-const majorityElement = (nums: number[]): number => {
-  const countMap: Map<number, number> = new Map();
-  for (const num of nums) {
-    countMap.set(num, (countMap.get(num) || 0) + 1);
-  }
-  let maxCount = 0;
-  let majorityNum = nums[0];
+// // MITask-I
+// // majorityElement([1,2,3,4,5,4,3,4]) return 4
+// const majorityElement = (nums: number[]): number => {
+//   const countMap: Map<number, number> = new Map();
+//   for (const num of nums) {
+//     countMap.set(num, (countMap.get(num) || 0) + 1);
+//   }
+//   let maxCount = 0;
+//   let majorityNum = nums[0];
 
-  for (const [num, count] of countMap) {
-    if (count > maxCount) {
-      maxCount = count;
-      majorityNum = num;
+//   for (const [num, count] of countMap) {
+//     if (count > maxCount) {
+//       maxCount = count;
+//       majorityNum = num;
+//     }
+//   }
+//   return majorityNum;
+// };
+// const nums1: number[] = [3, 1, 2, 3, 4, 5, 4, 3, 4, 4];
+// console.log("majorityNum", majorityElement(nums1));
+// const nums2: number[] = [12, 123, 32, 45, 5, 6, 7, 1, 2, 34, 4, 3, 5, 7];
+// console.log("majorityNum", majorityElement(nums2));
+
+// // MITask-J
+// findLongestWord("I come from Uzbekistan") return "Uzbekistan"
+
+function findLongestWord(str: string): string {
+  const words: string[] = str.split(" ");
+  let longestWord: string = "";
+
+  for (const word of words) {
+    if (word.length > longestWord.length) {
+      longestWord = word;
     }
   }
-  return majorityNum;
-};
-const nums1: number[] = [3, 1, 2, 3, 4, 5, 4, 3, 4, 4];
-console.log("majorityNum", majorityElement(nums1));
-const nums2: number[] = [12, 123, 32, 45, 5, 6, 7, 1, 2, 34, 4, 3, 5, 7];
-console.log("majorityNum", majorityElement(nums2));
+  return longestWord;
+}
+
+console.log(findLongestWord("I come from Uzbekistan"));
+console.log(findLongestWord("Nimadur yozilishi kerak tekshirish uchun"));
