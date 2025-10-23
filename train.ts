@@ -80,20 +80,36 @@
 // const nums2: number[] = [12, 123, 32, 45, 5, 6, 7, 1, 2, 34, 4, 3, 5, 7];
 // console.log("majorityNum", majorityElement(nums2));
 
-// // MITask-J
-// findLongestWord("I come from Uzbekistan") return "Uzbekistan"
+// // // MITask-J
+// // findLongestWord("I come from Uzbekistan") return "Uzbekistan"
 
-function findLongestWord(str: string): string {
-  const words: string[] = str.split(" ");
-  let longestWord: string = "";
+// function findLongestWord(str: string): string {
+//   const words: string[] = str.split(" ");
+//   let longestWord: string = "";
 
-  for (const word of words) {
-    if (word.length > longestWord.length) {
-      longestWord = word;
+//   for (const word of words) {
+//     if (word.length > longestWord.length) {
+//       longestWord = word;
+//     }
+//   }
+//   return longestWord;
+// }
+
+// console.log(findLongestWord("I come from Uzbekistan"));
+// console.log(findLongestWord("Nimadur yozilishi kerak tekshirish uchun"));
+
+// MITask-K:
+// countVowels("string") return 1;
+function countVowels(str: string): number {
+  const vowels: string[] = ["a", "o", "i", "e", "u"];
+  let counter: number = 0;
+  for (const letter of str) {
+    if (vowels.includes(letter)) {
+      counter++;
     }
   }
-  return longestWord;
+  return counter;
 }
 
-console.log(findLongestWord("I come from Uzbekistan"));
-console.log(findLongestWord("Nimadur yozilishi kerak tekshirish uchun"));
+console.log(countVowels("string"));
+console.log(countVowels("tekshirish"));
