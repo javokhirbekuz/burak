@@ -25,8 +25,7 @@ restaurantController.getSignup = (req: Request, res: Response) => {
     res.render("signup");
   } catch (err) {
     console.log("Error getSignup:", err);
-    if (err instanceof Errors) res.status(err.code).json(err);
-    else res.status(Errors.standard.code).json(Errors.standard);
+    res.redirect("/admin");
   }
 };
 
@@ -36,8 +35,7 @@ restaurantController.getLogin = (req: Request, res: Response) => {
     res.render("login");
   } catch (err) {
     console.log("Error getLogin:", err);
-    if (err instanceof Errors) res.status(err.code).json(err);
-    else res.status(Errors.standard.code).json(Errors.standard);
+    res.redirect("/admin");
   }
 };
 
@@ -58,8 +56,11 @@ restaurantController.processSignup = async (
     });
   } catch (err) {
     console.log("Error processSignup:", err);
-    if (err instanceof Errors) res.status(err.code).json(err);
-    else res.status(Errors.standard.code).json(Errors.standard);
+    const message =
+      err instanceof Errors ? err.message : Message.SOMETHING_WENT_WRONG;
+    res.send(
+      `<script>alert("${message}")</script>; window.location.replace('/admin/signup)`
+    );
   }
 };
 
@@ -81,8 +82,23 @@ restaurantController.processLogin = async (
     });
   } catch (err) {
     console.log("Error processLogin:", err);
-    if (err instanceof Errors) res.status(err.code).json(err);
-    else res.status(Errors.standard.code).json(Errors.standard);
+    const message =
+      err instanceof Errors ? err.message : Message.SOMETHING_WENT_WRONG;
+    res.send(
+      `<script>alert("${message}")</script>; window.location.replace('/admin/login)`
+    );
+  }
+};
+
+restaurantController.logout = async (req: AdminRequest, res: Response) => {
+  try {
+    console.log("logout");
+    req.session.destroy(() => {
+      res.redirect("/admin");
+    });
+  } catch (err) {
+    console.log("Error logout:", err);
+    res.redirect("/admin");
   }
 };
 
