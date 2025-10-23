@@ -3,7 +3,7 @@ import { T } from "../libs/types/common";
 import MemberService from "../models/Member.service";
 import { AdminRequest, LoginInput, MemberInput } from "../libs/types/member";
 import { MemberType } from "../libs/enum/member.enum";
-import Errors from "../libs/Errors";
+import Errors, { Message } from "../libs/Errors";
 
 const memberService = new MemberService();
 const restaurantController: T = {};
@@ -81,6 +81,23 @@ restaurantController.processLogin = async (
     });
   } catch (err) {
     console.log("Error processLogin:", err);
+    if (err instanceof Errors) res.status(err.code).json(err);
+    else res.status(Errors.standard.code).json(Errors.standard);
+  }
+};
+
+restaurantController.checkAuthSession = async (
+  req: AdminRequest,
+  res: Response
+) => {
+  try {
+    if (req.session?.member)
+      res.send(
+        `<script>alert("HI, ${req.session.member.memberNick}")</script>`
+      );
+    else res.send(`<script>alert("${Message.NOT_AUTHENTICATED}")</script>`);
+  } catch (err) {
+    console.log("Error checkAuthSession:", err);
     if (err instanceof Errors) res.status(err.code).json(err);
     else res.status(Errors.standard.code).json(Errors.standard);
   }
