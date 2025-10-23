@@ -1,8 +1,7 @@
 import { Request, Response } from "express";
-
 import { T } from "../libs/types/common";
 import MemberService from "../models/Member.service";
-import { LoginInput, MemberInput } from "../libs/types/member";
+import { AdminRequest, LoginInput, MemberInput } from "../libs/types/member";
 import { MemberType } from "../libs/enum/member.enum";
 import Errors from "../libs/Errors";
 
@@ -42,18 +41,21 @@ restaurantController.getLogin = (req: Request, res: Response) => {
   }
 };
 
-restaurantController.processSignup = async (req: Request, res: Response) => {
+restaurantController.processSignup = async (
+  req: AdminRequest,
+  res: Response
+) => {
   try {
     console.log("processSignup");
-    // console.log("body", req.body);
-
     const newMember: MemberInput = req.body;
     newMember.memberType = MemberType.RESTAURANT;
-
-    // console.log("body2", newMember);
-
     const result = await memberService.processSignup(newMember);
-    res.send(result);
+    //  TODO: SESSIONS AUTHENTICATION
+    req.session.member = result;
+    req.session.save(function () {
+      // console.log()
+      res.send(result);
+    });
   } catch (err) {
     console.log("Error processSignup:", err);
     if (err instanceof Errors) res.status(err.code).json(err);
@@ -61,15 +63,22 @@ restaurantController.processSignup = async (req: Request, res: Response) => {
   }
 };
 
-restaurantController.processLogin = async (req: Request, res: Response) => {
+restaurantController.processLogin = async (
+  req: AdminRequest,
+  res: Response
+) => {
   try {
     console.log("processLogin");
     const input: LoginInput = req.body;
     console.log("body", req.body);
 
     const result = await memberService.processLogin(input);
-
-    res.send(result);
+    //  TODO: SESSIONS AUTHENTICATION
+    req.session.member = result;
+    req.session.save(function () {
+      // console.log()
+      res.send(result);
+    });
   } catch (err) {
     console.log("Error processLogin:", err);
     if (err instanceof Errors) res.status(err.code).json(err);

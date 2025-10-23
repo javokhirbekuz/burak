@@ -62,10 +62,7 @@ class MemberService {
 
     try {
       const result = await this.memberModel.create(input);
-      // const tempResult = new this.memberModel(input);
-      // const result = await tempResult.save();
       result.memberPassword = "";
-      // console.log("Passsed here");
       return result;
     } catch (err) {
       throw new Errors(HttpCode.BAD_REQUEST, Message.CREATE_FAILED);
