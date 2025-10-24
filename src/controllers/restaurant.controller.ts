@@ -50,7 +50,6 @@ restaurantController.processSignup = async (
     //  TODO: SESSIONS AUTHENTICATION
     req.session.member = result;
     req.session.save(function () {
-      // console.log()
       res.send(result);
     });
   } catch (err) {
