@@ -98,18 +98,32 @@
 // console.log(findLongestWord("I come from Uzbekistan"));
 // console.log(findLongestWord("Nimadur yozilishi kerak tekshirish uchun"));
 
-// MITask-K:
-// countVowels("string") return 1;
-function countVowels(str: string): number {
-  const vowels: string[] = ["a", "o", "i", "e", "u"];
-  let counter: number = 0;
-  for (const letter of str) {
-    if (vowels.includes(letter)) {
-      counter++;
-    }
+// // MITask-K:
+// // countVowels("string") return 1;
+// function countVowels(str: string): number {
+//   const vowels: string[] = ["a", "o", "i", "e", "u"];
+//   let counter: number = 0;
+//   for (const letter of str) {
+//     if (vowels.includes(letter)) {
+//       counter++;
+//     }
+//   }
+//   return counter;
+// }
+
+// console.log(countVowels("string"));
+// console.log(countVowels("tekshirish"));
+
+// MITask-L:
+// reverseSentence("we like coding!") return "ew ekil gnidoc";
+function reverseSentence(str: string) {
+  const words: string[] = str.split(" ");
+  let result: any = [];
+  for (const word of words) {
+    result.push(word.split("").reverse().join(""), " ");
   }
-  return counter;
+  return result.join("");
 }
 
-console.log(countVowels("string"));
-console.log(countVowels("tekshirish"));
+console.log(reverseSentence("we like coding!"));
+console.log(reverseSentence("Nimadur yozilishi kerak tekshirish uchun"));
