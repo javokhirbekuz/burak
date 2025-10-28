@@ -114,16 +114,27 @@
 // console.log(countVowels("string"));
 // console.log(countVowels("tekshirish"));
 
-// MITask-L:
-// reverseSentence("we like coding!") return "ew ekil gnidoc";
-function reverseSentence(str: string) {
-  const words: string[] = str.split(" ");
-  let result: any = [];
-  for (const word of words) {
-    result.push(word.split("").reverse().join(""), " ");
-  }
-  return result.join("");
-}
+// // MITask-L:
+// // reverseSentence("we like coding!") return "ew ekil gnidoc";
+// function reverseSentence(str: string) {
+//   const words: string[] = str.split(" ");
+//   let result: any = [];
+//   for (const word of words) {
+//     result.push(word.split("").reverse().join(""), " ");
+//   }
+//   return result.join("");
+// }
 
-console.log(reverseSentence("we like coding!"));
-console.log(reverseSentence("Nimadur yozilishi kerak tekshirish uchun"));
+// console.log(reverseSentence("we like coding!"));
+// console.log(reverseSentence("Nimadur yozilishi kerak tekshirish uchun"));
+
+// MITask-M:
+// getSquareNumbers([1, 2, 3]) return [{number: 1, square: 1}, {number: 2, square: 4}, {number: 3, square: 9}];
+function getSquareNumbers(arr: number[]): object[] {
+  const result: object[] = arr.map((ele) => ({
+    number: ele,
+    square: ele * ele,
+  }));
+  return result;
+}
+console.log("result:", getSquareNumbers([2, 13, 25]));
