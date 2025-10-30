@@ -93,8 +93,6 @@ class MemberService {
       throw new Errors(HttpCode.UNAUTHORIZED, Message.WRONG_PASSWORD);
 
     return await this.memberModel.findById(member._id).exec();
-    // console.log("member", member);
-    // return result;
   }
 
   public async getUsers(): Promise<Member[]> {

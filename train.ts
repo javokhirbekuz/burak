@@ -128,13 +128,24 @@
 // console.log(reverseSentence("we like coding!"));
 // console.log(reverseSentence("Nimadur yozilishi kerak tekshirish uchun"));
 
-// MITask-M:
-// getSquareNumbers([1, 2, 3]) return [{number: 1, square: 1}, {number: 2, square: 4}, {number: 3, square: 9}];
-function getSquareNumbers(arr: number[]): object[] {
-  const result: object[] = arr.map((ele) => ({
-    number: ele,
-    square: ele * ele,
-  }));
-  return result;
+// // MITask-M:
+// // getSquareNumbers([1, 2, 3]) return [{number: 1, square: 1}, {number: 2, square: 4}, {number: 3, square: 9}];
+// function getSquareNumbers(arr: number[]): object[] {
+//   const result: object[] = arr.map((ele) => ({
+//     number: ele,
+//     square: ele * ele,
+//   }));
+//   return result;
+// }
+// console.log("result:", getSquareNumbers([2, 13, 25]));
+
+// MITask-N:
+// palindromCheck("dad") return true;  palindromCheck("son") return false;
+function palindromCheck(str: string) {
+  const reversedString = str.split("").reverse().join("");
+  if (reversedString === str) return true;
+  else return false;
 }
-console.log("result:", getSquareNumbers([2, 13, 25]));
+
+console.log(palindromCheck("dad"));
+console.log(palindromCheck("son"));
