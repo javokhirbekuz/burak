@@ -139,13 +139,26 @@
 // }
 // console.log("result:", getSquareNumbers([2, 13, 25]));
 
-// MITask-N:
-// palindromCheck("dad") return true;  palindromCheck("son") return false;
-function palindromCheck(str: string) {
-  const reversedString = str.split("").reverse().join("");
-  if (reversedString === str) return true;
-  else return false;
+// // MITask-N:
+// // palindromCheck("dad") return true;  palindromCheck("son") return false;
+// function palindromCheck(str: string) {
+//   const reversedString = str.split("").reverse().join("");
+//   if (reversedString === str) return true;
+//   else return false;
+// }
+
+// console.log(palindromCheck("dad"));
+// console.log(palindromCheck("son"));
+
+// MITask-O:
+// calculateSumOfNumbers([10, "10", {son: 10}, true, 35]) return 45
+function calculateSumOfNumbers(data: any[]) {
+  return data.reduce(
+    (tot, ele) => (typeof ele === "number" ? (tot += ele) : tot),
+    0
+  );
 }
 
-console.log(palindromCheck("dad"));
-console.log(palindromCheck("son"));
+console.log(
+  calculateSumOfNumbers(["10", "10", { son: 10 }, true, 35, 45, -100])
+);
