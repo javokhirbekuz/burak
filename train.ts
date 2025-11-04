@@ -150,15 +150,24 @@
 // console.log(palindromCheck("dad"));
 // console.log(palindromCheck("son"));
 
-// MITask-O:
-// calculateSumOfNumbers([10, "10", {son: 10}, true, 35]) return 45
-function calculateSumOfNumbers(data: any[]) {
-  return data.reduce(
-    (tot, ele) => (typeof ele === "number" ? (tot += ele) : tot),
-    0
-  );
-}
+// // MITask-O:
+// // calculateSumOfNumbers([10, "10", {son: 10}, true, 35]) return 45
+// function calculateSumOfNumbers(data: any[]) {
+//   return data.reduce(
+//     (tot, ele) => (typeof ele === "number" ? (tot += ele) : tot),
+//     0
+//   );
+// }
 
-console.log(
-  calculateSumOfNumbers(["10", "10", { son: 10 }, true, 35, 45, -100])
-);
+// console.log(
+//   calculateSumOfNumbers(["10", "10", { son: 10 }, true, 35, 45, -100])
+// );
+
+// MITask-P:
+// objectToArray( {a: 10, b: 20}) return [['a', 10], ['b', 20]]
+const objectToArray = (data: { [key: string]: any }) => {
+  return Object.keys(data).map((key) => [key, data[key]]);
+};
+
+console.log(objectToArray({ a: 10, b: 20 }));
+console.log(objectToArray({ a: 10, b: 20, men: "salom" }));
