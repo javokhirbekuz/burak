@@ -11,7 +11,7 @@ $(function () {
         _id: id,
         memberStatus: memberStatus,
       })
-      .then(() => {
+      .then((response) => {
         console.log("response:", response);
         const result = response.data;
         if (result.data) {
