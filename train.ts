@@ -163,11 +163,36 @@
 //   calculateSumOfNumbers(["10", "10", { son: 10 }, true, 35, 45, -100])
 // );
 
-// MITask-P:
-// objectToArray( {a: 10, b: 20}) return [['a', 10], ['b', 20]]
-const objectToArray = (data: { [key: string]: any }) => {
-  return Object.keys(data).map((key) => [key, data[key]]);
-};
+// // MITask-P:
+// // objectToArray( {a: 10, b: 20}) return [['a', 10], ['b', 20]]
+// const objectToArray = (data: { [key: string]: any }) => {
+//   return Object.keys(data).map((key) => [key, data[key]]);
+// };
 
-console.log(objectToArray({ a: 10, b: 20 }));
-console.log(objectToArray({ a: 10, b: 20, men: "salom" }));
+// console.log(objectToArray({ a: 10, b: 20 }));
+// console.log(objectToArray({ a: 10, b: 20, men: "salom" }));
+
+// // MITask-Q:
+// // hasProperty({name: "BMW", model: "M3"}, "model") return true; hasProperty({name: "BMW", model: "M3"}, "year") return false
+// function hasProperty(obj: object, prop: string): boolean {
+//   return prop in obj;
+// }
+
+// console.log(hasProperty({ name: "BMW", model: "M3" }, "model")); // true
+// console.log(hasProperty({ name: "BMW", model: "M3" }, "year"));
+
+// MITask-R:
+// calculate("1+3") return 4;
+
+function calculate(str: string): number {
+  const numbers: string[] = str.split("+");
+  const result = numbers.reduce((acc, ele) => {
+    return (acc += Number(ele));
+  }, 0);
+  return result;
+}
+
+console.log(calculate("1+ 33"));
+console.log(calculate("11 +23"));
+console.log(calculate("14+53"));
+console.log(calculate("18+31"));
