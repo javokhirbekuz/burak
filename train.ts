@@ -181,18 +181,33 @@
 // console.log(hasProperty({ name: "BMW", model: "M3" }, "model")); // true
 // console.log(hasProperty({ name: "BMW", model: "M3" }, "year"));
 
-// MITask-R:
-// calculate("1+3") return 4;
+// // MITask-R:
+// // calculate("1+3") return 4;
 
-function calculate(str: string): number {
-  const numbers: string[] = str.split("+");
-  const result = numbers.reduce((acc, ele) => {
-    return (acc += Number(ele));
-  }, 0);
-  return result;
+// function calculate(str: string): number {
+//   const numbers: string[] = str.split("+");
+//   const result = numbers.reduce((acc, ele) => {
+//     return (acc += Number(ele));
+//   }, 0);
+//   return result;
+// }
+
+// console.log(calculate("1+ 33"));
+// console.log(calculate("11 +23"));
+// console.log(calculate("14+53"));
+// console.log(calculate("18+31"));
+
+// MITask-S:
+// missingNumber([3, 0, 1]) return 2
+
+function missingNumber(nums: number[]): number {
+  const leng = nums.length;
+  const expectedSum = (leng * (leng + 1)) / 2;
+  const actualSum = nums.reduce((sum, num) => sum + num, 0);
+  return expectedSum - actualSum;
 }
 
-console.log(calculate("1+ 33"));
-console.log(calculate("11 +23"));
-console.log(calculate("14+53"));
-console.log(calculate("18+31"));
+console.log(missingNumber([3, 0, 1]));
+console.log(missingNumber([0, 1]));
+console.log(missingNumber([9, 6, 4, 2, 3, 5, 7, 0, 1]));
+console.log(missingNumber([0]));
