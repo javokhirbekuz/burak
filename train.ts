@@ -197,17 +197,32 @@
 // console.log(calculate("14+53"));
 // console.log(calculate("18+31"));
 
-// MITask-S:
-// missingNumber([3, 0, 1]) return 2
+// // MITask-S:
+// // missingNumber([3, 0, 1]) return 2
 
-function missingNumber(nums: number[]): number {
-  const leng = nums.length;
-  const expectedSum = (leng * (leng + 1)) / 2;
-  const actualSum = nums.reduce((sum, num) => sum + num, 0);
-  return expectedSum - actualSum;
-}
+// function missingNumber(nums: number[]): number {
+//   const leng = nums.length;
+//   const expectedSum = (leng * (leng + 1)) / 2;
+//   const actualSum = nums.reduce((sum, num) => sum + num, 0);
+//   return expectedSum - actualSum;
+// }
 
-console.log(missingNumber([3, 0, 1]));
-console.log(missingNumber([0, 1]));
-console.log(missingNumber([9, 6, 4, 2, 3, 5, 7, 0, 1]));
-console.log(missingNumber([0]));
+// console.log(missingNumber([3, 0, 1]));
+// console.log(missingNumber([0, 1]));
+// console.log(missingNumber([9, 6, 4, 2, 3, 5, 7, 0, 1]));
+// console.log(missingNumber([0]));
+
+// MITask-T:
+// MASALAN: mergeSortedArrays([0,3,4,31], [4,6,30]); return [0,3,4,4,6,30,31]
+
+const mergeSortedArrays = (arr1: number[], arr2: number[]): number[] => {
+  return [...arr1, ...arr2].sort((a, b) => a - b);
+};
+
+console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]));
+console.log(
+  mergeSortedArrays(
+    [1231, 1231, 231, 231, 23],
+    [5, 6756, 75, 6756, 743, 534, 5345]
+  )
+);
