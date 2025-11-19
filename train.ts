@@ -212,17 +212,27 @@
 // console.log(missingNumber([9, 6, 4, 2, 3, 5, 7, 0, 1]));
 // console.log(missingNumber([0]));
 
-// MITask-T:
-// MASALAN: mergeSortedArrays([0,3,4,31], [4,6,30]); return [0,3,4,4,6,30,31]
+// // MITask-T:
+// // MASALAN: mergeSortedArrays([0,3,4,31], [4,6,30]); return [0,3,4,4,6,30,31]
 
-const mergeSortedArrays = (arr1: number[], arr2: number[]): number[] => {
-  return [...arr1, ...arr2].sort((a, b) => a - b);
-};
+// const mergeSortedArrays = (arr1: number[], arr2: number[]): number[] => {
+//   return [...arr1, ...arr2].sort((a, b) => a - b);
+// };
 
-console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]));
-console.log(
-  mergeSortedArrays(
-    [1231, 1231, 231, 231, 23],
-    [5, 6756, 75, 6756, 743, 534, 5345]
-  )
-);
+// console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]));
+// console.log(
+//   mergeSortedArrays(
+//     [1231, 1231, 231, 231, 23],
+//     [5, 6756, 75, 6756, 743, 534, 5345]
+//   )
+// );
+
+// MITask-U:
+// MASALAN: sumOdds(9) return 4; sumOdds(11) return 5;
+function sumOdds(number: number): number {
+  const arr = [...Array(number).keys()].filter((ele) => ele % 2 == 1);
+  return arr.length;
+}
+
+console.log(sumOdds(9));
+console.log(sumOdds(11));
