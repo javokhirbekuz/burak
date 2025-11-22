@@ -33,13 +33,18 @@ class MemberService {
   public async login(input: LoginInput): Promise<Member> {
     const member = await this.memberModel
       .findOne(
-        { memberNick: input.memberNick },
-        { memberNick: 1, memberPassword: 1 }
+        {
+          memberNick: input.memberNick,
+          memberStatus: { $ne: MemberStatus.DELETE },
+        },
+        { memberNick: 1, memberPassword: 1, memberStatus: 1 }
       )
       .exec();
 
     if (!member) {
       throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
+    } else if (member.memberStatus === MemberStatus.BLOCK) {
+      throw new Errors(HttpCode.FORBIDDEN, Message.BLOCKED_USER);
     }
 
     const passwordMatch = await bcrypt.compare(
@@ -50,9 +55,7 @@ class MemberService {
     if (!passwordMatch) {
       throw new Errors(HttpCode.UNAUTHORIZED, Message.WRONG_PASSWORD);
     }
-
     const result = await this.memberModel.findById(member._id).lean().exec();
-
     return result;
   }
 
