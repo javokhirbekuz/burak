@@ -19,7 +19,8 @@ class AuthService {
         (err, token) => {
           if (err)
             reject(
-              new Errors(HttpCode.UNAUTHORIZED, Message.TOKEN_CREATION_FAILED)
+              err
+              // new Errors(HttpCode.UNAUTHORIZED, Message.TOKEN_CREATION_FAILED)
             );
           else {
             resolve(token as string);
