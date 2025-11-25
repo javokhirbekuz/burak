@@ -18,6 +18,8 @@ router.get(
   memberController.getMemberDetail
 );
 
+router.get("/member/top-users", memberController.getTopUsers);
+
 router.post(
   "/member/update",
   memberController.verifyAuth,
