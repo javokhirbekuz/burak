@@ -254,28 +254,58 @@
 
 // console.log(countChars("hello"));
 
-// MITask-W:
-// Shunday function yozing, uni array va number parametrlari bolsin. Function arrayni numberda berilgan uzunlikda kesib bolaklarga ajratilgan array holatida qaytarsin
-// MASALAN: chunkArray([1,2,3,4,5,6,7,8,9,10], 3) return [[1,2,3], [4,5,6], [7,8,9], [10]]
-// const chunkArray = function (arr: number[], n: number): number[][] {
-//   let counter = 0;
+// // MITask-W:
+// // Shunday function yozing, uni array va number parametrlari bolsin. Function arrayni numberda berilgan uzunlikda kesib bolaklarga ajratilgan array holatida qaytarsin
+// // MASALAN: chunkArray([1,2,3,4,5,6,7,8,9,10], 3) return [[1,2,3], [4,5,6], [7,8,9], [10]]
+// // const chunkArray = function (arr: number[], n: number): number[][] {
+// //   let counter = 0;
+// //   const result = [];
+// //   while (Math.ceil(arr.length / n) > counter) {
+// //     result.push(arr.slice(counter * n, counter * n + n));
+// //     counter++;
+// //   }
+// //   return result;
+// // };
+
+// const chunkArray = function (arr: number[], n: number) {
 //   const result = [];
-//   while (Math.ceil(arr.length / n) > counter) {
-//     result.push(arr.slice(counter * n, counter * n + n));
-//     counter++;
+//   for (let i = 0; i < arr.length; i = i + n) {
+//     result.push(arr.slice(i, i + n));
 //   }
 //   return result;
 // };
+// console.log(chunkArray([6, 2, 1, 4, 2, 3, 4, 6, 9], 2));
 
-const chunkArray = function (arr: number[], n: number) {
-  const result = [];
-  for (let i = 0; i < arr.length; i = i + n) {
-    result.push(arr.slice(i, i + n));
+// console.log(chunkArray([6, 2, 1], 2));
+
+// console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3));
+
+// MITask-X
+// MASALAN: countOccurrences({model: 'Bugatti', steer: {model: 'HANKOOK', size: 30}}, 'model') return 2
+
+const countOccurrences = (object: {}, prop: string): number => {
+  let count = 0;
+  function helper(value: any) {
+    if (value && typeof value === "object") {
+      for (const key in value) {
+        if (key === prop) {
+          count += 1;
+        }
+        helper(value[key]);
+      }
+    }
   }
-  return result;
+  helper(object);
+  return count;
 };
-console.log(chunkArray([6, 2, 1, 4, 2, 3, 4, 6, 9], 2));
 
-console.log(chunkArray([6, 2, 1], 2));
-
-console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3));
+console.log(
+  countOccurrences(
+    {
+      model: "Bugatti",
+      steer: { model: "HANKOOK", size: 30 },
+      tyre: { model: { model: "Nexen", year: 2025 }, size: 18 },
+    },
+    "model"
+  )
+);
