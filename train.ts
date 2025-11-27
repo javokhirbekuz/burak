@@ -280,32 +280,41 @@
 
 // console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3));
 
-// MITask-X
-// MASALAN: countOccurrences({model: 'Bugatti', steer: {model: 'HANKOOK', size: 30}}, 'model') return 2
+// // MITask-X
+// // MASALAN: countOccurrences({model: 'Bugatti', steer: {model: 'HANKOOK', size: 30}}, 'model') return 2
 
-const countOccurrences = (object: {}, prop: string): number => {
-  let count = 0;
-  function helper(value: any) {
-    if (value && typeof value === "object") {
-      for (const key in value) {
-        if (key === prop) {
-          count += 1;
-        }
-        helper(value[key]);
-      }
-    }
-  }
-  helper(object);
-  return count;
-};
+// const countOccurrences = (object: {}, prop: string): number => {
+//   let count = 0;
+//   function helper(value: any) {
+//     if (value && typeof value === "object") {
+//       for (const key in value) {
+//         if (key === prop) {
+//           count += 1;
+//         }
+//         helper(value[key]);
+//       }
+//     }
+//   }
+//   helper(object);
+//   return count;
+// };
 
-console.log(
-  countOccurrences(
-    {
-      model: "Bugatti",
-      steer: { model: "HANKOOK", size: 30 },
-      tyre: { model: { model: "Nexen", year: 2025 }, size: 18 },
-    },
-    "model"
-  )
-);
+// console.log(
+//   countOccurrences(
+//     {
+//       model: "Bugatti",
+//       steer: { model: "HANKOOK", size: 30 },
+//       tyre: { model: { model: "Nexen", year: 2025 }, size: 18 },
+//     },
+//     "model"
+//   )
+// );
+
+// MITask-Y:
+// MASALAN: findIntersection([1,2,3], [3,2,0]) return [2,3]
+
+function findIntersection(arr1: number[], arr2: number[]): number[] {
+  return arr1.filter((ele) => arr2.includes(ele));
+}
+
+console.log(findIntersection([1, 2, 3], [3, 2, 0]));
