@@ -6,6 +6,14 @@ import {
   ProductVolume,
 } from "../enum/product.enum";
 
+export interface ProductInquery {
+  order: string;
+  page: number;
+  limit: number;
+  productCollection?: ProductCollection;
+  search?: string;
+}
+
 export interface ProductInput {
   productStatus: ProductStatus;
   productCollection: ProductCollection;
