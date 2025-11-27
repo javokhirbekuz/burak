@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from "uuid";
 function getTargetImageStorage(address: string) {
   return multer.diskStorage({
     destination: function (req, file, cb) {
-      const uploadPath = path.join("/uploads", address);
+      const uploadPath = path.join("uploads", address);
       if (!fs.existsSync(uploadPath)) {
         fs.mkdirSync(uploadPath, { recursive: true });
       }
