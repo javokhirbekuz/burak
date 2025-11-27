@@ -1,3 +1,4 @@
+import { ObjectId } from "mongoose";
 import { ProductStatus } from "../libs/enum/product.enum";
 import { shapeIntoMongooseObjectId } from "../libs/config";
 import Errors, { HttpCode, Message } from "../libs/Errors";
@@ -35,6 +36,23 @@ class ProductService {
     return result;
   }
 
+  public async getProduct(
+    memberId: ObjectId | null,
+    id: string
+  ): Promise<Product> {
+    const productId = shapeIntoMongooseObjectId(id);
+    let result = await this.productModel
+      .findOne({
+        _id: productId,
+        productStatus: ProductStatus.PROCESS,
+      })
+      .exec();
+    if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
+
+    // TODO: if authenticated users => first => view log creation
+
+    return result;
+  }
   /**   BSSR   **/
 
   public async getAllProducts(): Promise<Product[]> {
