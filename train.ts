@@ -319,10 +319,19 @@
 
 // console.log(findIntersection([1, 2, 3], [3, 2, 0]));
 
-// MITask-Z:
-// MASALAN: sumEvens([1,2,3]) return 2
+// // MITask-Z:
+// // MASALAN: sumEvens([1,2,3]) return 2
 
-function sumEvens(arr: number[]): number {
-  return arr.reduce((acc, ele) => (ele % 2 === 0 ? acc + ele : acc), 0);
+// function sumEvens(arr: number[]): number {
+//   return arr.reduce((acc, ele) => (ele % 2 === 0 ? acc + ele : acc), 0);
+// }
+// console.log(sumEvens([1, 2, 3, 4, 5, 6, 7, 8, 9]));
+
+// MITask-ZA:
+// MASALAN: sortByAge([{age:23}, {age:21}, {age:13}]) return [{age:13}, {age:21}, {age:23}]
+
+function sortByAge(arr: { age: number }[]): { age: number }[] {
+  return arr.sort((a, b) => a.age - b.age);
 }
-console.log(sumEvens([1, 2, 3, 4, 5, 6, 7, 8, 9]));
+
+console.log(sortByAge([{ age: 23 }, { age: 21 }, { age: 13 }]));
