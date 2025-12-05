@@ -327,11 +327,18 @@
 // }
 // console.log(sumEvens([1, 2, 3, 4, 5, 6, 7, 8, 9]));
 
-// MITask-ZA:
-// MASALAN: sortByAge([{age:23}, {age:21}, {age:13}]) return [{age:13}, {age:21}, {age:23}]
+// // MITask-ZA:
+// // MASALAN: sortByAge([{age:23}, {age:21}, {age:13}]) return [{age:13}, {age:21}, {age:23}]
 
-function sortByAge(arr: { age: number }[]): { age: number }[] {
-  return arr.sort((a, b) => a.age - b.age);
-}
+// function sortByAge(arr: { age: number }[]): { age: number }[] {
+//   return arr.sort((a, b) => a.age - b.age);
+// }
 
-console.log(sortByAge([{ age: 23 }, { age: 21 }, { age: 13 }]));
+// console.log(sortByAge([{ age: 23 }, { age: 21 }, { age: 13 }]));
+
+// MITask-ZC:
+// MASALAN: celsiusToFahrenheit(0) return 32
+
+const celsiusToFahrenheit = (celsius: number): number => (celsius * 9) / 5 + 32;
+
+console.log(celsiusToFahrenheit(0));
