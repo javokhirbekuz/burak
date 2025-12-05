@@ -336,9 +336,21 @@
 
 // console.log(sortByAge([{ age: 23 }, { age: 21 }, { age: 13 }]));
 
-// MITask-ZC:
-// MASALAN: celsiusToFahrenheit(0) return 32
+// // MITask-ZC:
+// // MASALAN: celsiusToFahrenheit(0) return 32
 
-const celsiusToFahrenheit = (celsius: number): number => (celsius * 9) / 5 + 32;
+// const celsiusToFahrenheit = (celsius: number): number => (celsius * 9) / 5 + 32;
 
-console.log(celsiusToFahrenheit(0));
+// console.log(celsiusToFahrenheit(0));
+
+// MITask-ZD:
+// MASALAN: changeNumberInArray(1, [1,3,7,2], 2) return [1,2,7,2]
+
+function changeNumberInArray(
+  num: number,
+  arr: number[],
+  newValue: number
+): number[] {
+  return arr.map((ele: number, i: number) => (i === num ? newValue : ele));
+}
+console.log(changeNumberInArray(1, [1, 3, 7, 2], 2));
