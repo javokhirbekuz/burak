@@ -343,14 +343,25 @@
 
 // console.log(celsiusToFahrenheit(0));
 
-// MITask-ZD:
-// MASALAN: changeNumberInArray(1, [1,3,7,2], 2) return [1,2,7,2]
+// // MITask-ZD:
+// // MASALAN: changeNumberInArray(1, [1,3,7,2], 2) return [1,2,7,2]
 
-function changeNumberInArray(
-  num: number,
-  arr: number[],
-  newValue: number
-): number[] {
-  return arr.map((ele: number, i: number) => (i === num ? newValue : ele));
+// function changeNumberInArray(
+//   num: number,
+//   arr: number[],
+//   newValue: number
+// ): number[] {
+//   return arr.map((ele: number, i: number) => (i === num ? newValue : ele));
+// }
+// console.log(changeNumberInArray(1, [1, 3, 7, 2], 2));
+
+// MITask-ZE:
+// MASALAN: removeDuplicate('stringg') return 'string'
+
+function removeDuplicate(str: string): string {
+  return str.split("").reduce((acc, char) => {
+    return acc.includes(char) ? acc : acc + char;
+  }, "");
 }
-console.log(changeNumberInArray(1, [1, 3, 7, 2], 2));
+
+console.log(removeDuplicate("stringg"));
