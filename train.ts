@@ -355,13 +355,30 @@
 // }
 // console.log(changeNumberInArray(1, [1, 3, 7, 2], 2));
 
-// MITask-ZE:
-// MASALAN: removeDuplicate('stringg') return 'string'
+// // MITask-ZE:
+// // MASALAN: removeDuplicate('stringg') return 'string'
 
-function removeDuplicate(str: string): string {
-  return str.split("").reduce((acc, char) => {
-    return acc.includes(char) ? acc : acc + char;
-  }, "");
+// function removeDuplicate(str: string): string {
+//   return str.split("").reduce((acc, char) => {
+//     return acc.includes(char) ? acc : acc + char;
+//   }, "");
+// }
+
+// console.log(removeDuplicate("stringg"));
+
+// MITask-ZF:
+// MASALAN: capitalizeWords('name should be a string') return 'Name Should be a String'
+
+function capitalizeWords(text: string): string {
+  return text
+    .split(" ")
+    .map((word) => {
+      if (word.length <= 2) {
+        return word;
+      }
+      return word[0].toUpperCase() + word.slice(1);
+    })
+    .join(" ");
 }
 
-console.log(removeDuplicate("stringg"));
+console.log(capitalizeWords("name should be a string"));
