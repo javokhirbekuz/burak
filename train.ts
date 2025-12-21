@@ -383,10 +383,23 @@
 
 // console.log(capitalizeWords("name should be a string"));
 
-// MITask-ZG:
+// // MITask-ZG:
 
-function toSnakeCase(str: string): string {
-  return str.trim().toLowerCase().replace(/\s+/g, "_");
+// function toSnakeCase(str: string): string {
+//   return str.trim().toLowerCase().replace(/\s+/g, "_");
+// }
+
+// console.log(toSnakeCase("name should be a string"));
+
+function findDisappearedNumbers(arr: number[]): number[] {
+  if (arr.length === 0) return [];
+
+  const max = Math.max(...arr);
+  const numSet = new Set(arr);
+
+  return Array.from({ length: max }, (_, i) => i + 1).filter(
+    (num) => !numSet.has(num)
+  );
 }
 
-console.log(toSnakeCase("name should be a string"));
+console.log(findDisappearedNumbers([1, 3, 4, 7]));
