@@ -366,19 +366,27 @@
 
 // console.log(removeDuplicate("stringg"));
 
-// MITask-ZF:
-// MASALAN: capitalizeWords('name should be a string') return 'Name Should be a String'
+// // MITask-ZF:
+// // MASALAN: capitalizeWords('name should be a string') return 'Name Should be a String'
 
-function capitalizeWords(text: string): string {
-  return text
-    .split(" ")
-    .map((word) => {
-      if (word.length <= 2) {
-        return word;
-      }
-      return word[0].toUpperCase() + word.slice(1);
-    })
-    .join(" ");
+// function capitalizeWords(text: string): string {
+//   return text
+//     .split(" ")
+//     .map((word) => {
+//       if (word.length <= 2) {
+//         return word;
+//       }
+//       return word[0].toUpperCase() + word.slice(1);
+//     })
+//     .join(" ");
+// }
+
+// console.log(capitalizeWords("name should be a string"));
+
+// MITask-ZG:
+
+function toSnakeCase(str: string): string {
+  return str.trim().toLowerCase().replace(/\s+/g, "_");
 }
 
-console.log(capitalizeWords("name should be a string"));
+console.log(toSnakeCase("name should be a string"));
