@@ -391,15 +391,39 @@
 
 // console.log(toSnakeCase("name should be a string"));
 
-function findDisappearedNumbers(arr: number[]): number[] {
-  if (arr.length === 0) return [];
+// // MITask-ZH:
+// function findDisappearedNumbers(arr: number[]): number[] {
+//   if (arr.length === 0) return [];
 
-  const max = Math.max(...arr);
-  const numSet = new Set(arr);
+//   const max = Math.max(...arr);
+//   const numSet = new Set(arr);
 
-  return Array.from({ length: max }, (_, i) => i + 1).filter(
-    (num) => !numSet.has(num)
-  );
+//   return Array.from({ length: max }, (_, i) => i + 1).filter(
+//     (num) => !numSet.has(num)
+//   );
+// }
+
+// console.log(findDisappearedNumbers([1, 3, 4, 7]));
+
+// // MITask-ZI:
+// // MASALAN: delayHelloWorld("Hello World"); return "Hello World";
+
+// function delayHelloWorld(): Promise<string> {
+//   return new Promise((resolve) => {
+//     setTimeout(() => {
+//       resolve("Hello World!");
+//     }, 3000);
+//   });
+// }
+
+// delayHelloWorld().then((result) => {
+//   console.log(result);
+// });
+
+// MITask-ZJ:
+// MASALAN: reduceNestedArray([1, [1, 2, [4]]]); return 8;
+function reduceNestedArray(arr: any[]): number {
+  return arr.flat(Infinity).reduce((sum, num) => sum + num, 0);
 }
 
-console.log(findDisappearedNumbers([1, 3, 4, 7]));
+console.log(reduceNestedArray([1, [1, 2, [4]]])); // 8
