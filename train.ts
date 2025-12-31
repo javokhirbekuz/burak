@@ -420,10 +420,36 @@
 //   console.log(result);
 // });
 
-// MITask-ZJ:
-// MASALAN: reduceNestedArray([1, [1, 2, [4]]]); return 8;
-function reduceNestedArray(arr: any[]): number {
-  return arr.flat(Infinity).reduce((sum, num) => sum + num, 0);
+// // MITask-ZJ:
+// // MASALAN: reduceNestedArray([1, [1, 2, [4]]]); return 8;
+// function reduceNestedArray(arr: any[]): number {
+//   return arr.flat(Infinity).reduce((sum, num) => sum + num, 0);
+// }
+
+// console.log(reduceNestedArray([1, [1, 2, [4]]])); // 8
+
+// // MITask-ZK:
+// function printNumbers(): void {
+//   let index = 0;
+
+//   const intervalId = setInterval(() => {
+//     const num = (index % 5) + 1;
+//     console.log(num);
+
+//     index++;
+//     if (index >= 5) {
+//       clearInterval(intervalId);
+//     }
+//   }, 1000);
+// }
+
+// printNumbers();
+
+// MITask-ZL:
+// MASALAN: stringToKebab(“I love Kebab”) return “i-love-kebab”
+
+function stringToKebab(str: string): string {
+    return str.toLowerCase().split(" ").join("-");
 }
 
-console.log(reduceNestedArray([1, [1, 2, [4]]])); // 8
+console.log(stringToKebab("I love Kebab"));
