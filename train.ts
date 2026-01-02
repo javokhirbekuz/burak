@@ -445,11 +445,27 @@
 
 // printNumbers();
 
-// MITask-ZL:
-// MASALAN: stringToKebab(“I love Kebab”) return “i-love-kebab”
+// // MITask-ZL:
+// // MASALAN: stringToKebab(“I love Kebab”) return “i-love-kebab”
 
-function stringToKebab(str: string): string {
-    return str.toLowerCase().split(" ").join("-");
-}
+// function stringToKebab(str: string): string {
+//     return str.toLowerCase().split(" ").join("-");
+// }
 
-console.log(stringToKebab("I love Kebab"));
+// console.log(stringToKebab("I love Kebab"));
+
+
+// MITask-ZM:
+// MASALAN: squareDigits(9119) return "811181"
+function squareDigits(num: number): string {
+	return num
+		.toString()  
+		.split('')           
+		.map(digit => {
+			const n = parseInt(digit);    
+			return (n * n).toString();    
+		})
+		.join('');           
+    }
+
+console.log(squareDigits(9119));  
