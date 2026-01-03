@@ -455,17 +455,33 @@
 // console.log(stringToKebab("I love Kebab"));
 
 
-// MITask-ZM:
-// MASALAN: squareDigits(9119) return "811181"
-function squareDigits(num: number): string {
-	return num
-		.toString()  
-		.split('')           
-		.map(digit => {
-			const n = parseInt(digit);    
-			return (n * n).toString();    
-		})
-		.join('');           
-    }
+// // MITask-ZM:
+// // MASALAN: squareDigits(9119) return "811181"
+// function squareDigits(num: number): string {
+// 	return num
+// 		.toString()  
+// 		.split('')           
+// 		.map(digit => {
+// 			const n = parseInt(digit);    
+// 			return (n * n).toString();    
+// 		})
+// 		.join('');           
+//     }
 
-console.log(squareDigits(9119));  
+// console.log(squareDigits(9119));  
+
+// MITask-ZN:
+// MASALAN: rotateArray([1, 2, 3, 4, 5, 6], 3) return [5, 6, 1, 2, 3, 4].
+
+function rotateArray<T>(arr: T[], k: number): T[] {
+    if (arr.length === 0 || k === 0) {
+        return arr;
+    }
+    const steps = k % arr.length;
+
+    if (steps === 0) {
+        return arr;
+    } return [...arr.slice(-steps), ...arr.slice(0, arr.length - steps)];
+}
+
+console.log(rotateArray([1, 2, 3, 4, 5, 6], 4)); 
