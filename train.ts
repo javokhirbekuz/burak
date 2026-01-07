@@ -470,18 +470,39 @@
 
 // console.log(squareDigits(9119));  
 
-// MITask-ZN:
-// MASALAN: rotateArray([1, 2, 3, 4, 5, 6], 3) return [5, 6, 1, 2, 3, 4].
+// // MITask-ZN:
+// // MASALAN: rotateArray([1, 2, 3, 4, 5, 6], 3) return [5, 6, 1, 2, 3, 4].
 
-function rotateArray<T>(arr: T[], k: number): T[] {
-    if (arr.length === 0 || k === 0) {
-        return arr;
+// function rotateArray<T>(arr: T[], k: number): T[] {
+//     if (arr.length === 0 || k === 0) {
+//         return arr;
+//     }
+//     const steps = k % arr.length;
+
+//     if (steps === 0) {
+//         return arr;
+//     } return [...arr.slice(-steps), ...arr.slice(0, arr.length - steps)];
+// }
+
+// console.log(rotateArray([1, 2, 3, 4, 5, 6], 4)); 
+
+
+// MITask-ZO:
+// MASALAN: areParenthesesBalanced("string()ichida(qavslar)soni()balansda") return true
+
+function areParenthesesBalanced(str: string): boolean {
+    let count = 0;
+    for (const char of str) {
+        if (char === '(') {
+            count++;
+        } else if (char === ')') {
+            count--;
+            if (count < 0) {
+                return false;
+            }
+        }
     }
-    const steps = k % arr.length;
-
-    if (steps === 0) {
-        return arr;
-    } return [...arr.slice(-steps), ...arr.slice(0, arr.length - steps)];
+    return count === 0;
 }
 
-console.log(rotateArray([1, 2, 3, 4, 5, 6], 4)); 
+console.log(areParenthesesBalanced("()string()ichida(qavslar)soni()balansda")); 
