@@ -487,22 +487,36 @@
 // console.log(rotateArray([1, 2, 3, 4, 5, 6], 4)); 
 
 
-// MITask-ZO:
-// MASALAN: areParenthesesBalanced("string()ichida(qavslar)soni()balansda") return true
+// // MITask-ZO:
+// // MASALAN: areParenthesesBalanced("string()ichida(qavslar)soni()balansda") return true
 
-function areParenthesesBalanced(str: string): boolean {
-    let count = 0;
-    for (const char of str) {
-        if (char === '(') {
-            count++;
-        } else if (char === ')') {
-            count--;
-            if (count < 0) {
-                return false;
-            }
-        }
-    }
-    return count === 0;
+// function areParenthesesBalanced(str: string): boolean {
+//     let count = 0;
+//     for (const char of str) {
+//         if (char === '(') {
+//             count++;
+//         } else if (char === ')') {
+//             count--;
+//             if (count < 0) {
+//                 return false;
+//             }
+//         }
+//     }
+//     return count === 0;
+// }
+
+// console.log(areParenthesesBalanced("()string()ichida(qavslar)soni()balansda")); 
+
+
+
+// MITask-ZP:
+// MASALAN: countNumberAndLetters("string152%\¥") return {number:3, letter:6}
+
+function countNumbersAndLetters(text: string) {
+  return {
+    numbers: (text.match(/\d/g) || []).length,
+    letters: (text.match(/[a-zA-Z]/g) || []).length
+  };
 }
 
-console.log(areParenthesesBalanced("()string()ichida(qavslar)soni()balansda")); 
+console.log(countNumbersAndLetters("string152%¥"));
