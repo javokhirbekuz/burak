@@ -508,15 +508,36 @@
 // console.log(areParenthesesBalanced("()string()ichida(qavslar)soni()balansda")); 
 
 
+// // MITask-ZP:
+// // MASALAN: countNumberAndLetters("string152%\¥") return {number:3, letter:6}
 
-// MITask-ZP:
-// MASALAN: countNumberAndLetters("string152%\¥") return {number:3, letter:6}
+// function countNumbersAndLetters(text: string) {
+//   return {
+//     numbers: (text.match(/\d/g) || []).length,
+//     letters: (text.match(/[a-zA-Z]/g) || []).length
+//   };
+// }
 
-function countNumbersAndLetters(text: string) {
-  return {
-    numbers: (text.match(/\d/g) || []).length,
-    letters: (text.match(/[a-zA-Z]/g) || []).length
-  };
+// console.log(countNumbersAndLetters("string152%¥"));
+
+// MITask-ZO:
+// MASALAN: findDuplicates([1,2,3,4,5,4,3,4]) return [3, 4].
+
+function findDuplicates(arr: number[]): number[] {
+  const countMap = new Map<number, number>();
+  const result: number[] = [];
+
+  for (const num of arr) {
+    const count = (countMap.get(num) || 0) + 1;
+    countMap.set(num, count);
+
+    if (count === 2) {
+      result.push(num);
+    }
+  }
+
+  return result;
 }
 
-console.log(countNumbersAndLetters("string152%¥"));
+
+console.log(findDuplicates([1, 2, 3, 4, 5, 4, 3, 4, 3, 4, 2]));
