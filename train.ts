@@ -454,21 +454,20 @@
 
 // console.log(stringToKebab("I love Kebab"));
 
-
 // // MITask-ZM:
 // // MASALAN: squareDigits(9119) return "811181"
 // function squareDigits(num: number): string {
 // 	return num
-// 		.toString()  
-// 		.split('')           
+// 		.toString()
+// 		.split('')
 // 		.map(digit => {
-// 			const n = parseInt(digit);    
-// 			return (n * n).toString();    
+// 			const n = parseInt(digit);
+// 			return (n * n).toString();
 // 		})
-// 		.join('');           
+// 		.join('');
 //     }
 
-// console.log(squareDigits(9119));  
+// console.log(squareDigits(9119));
 
 // // MITask-ZN:
 // // MASALAN: rotateArray([1, 2, 3, 4, 5, 6], 3) return [5, 6, 1, 2, 3, 4].
@@ -484,8 +483,7 @@
 //     } return [...arr.slice(-steps), ...arr.slice(0, arr.length - steps)];
 // }
 
-// console.log(rotateArray([1, 2, 3, 4, 5, 6], 4)); 
-
+// console.log(rotateArray([1, 2, 3, 4, 5, 6], 4));
 
 // // MITask-ZO:
 // // MASALAN: areParenthesesBalanced("string()ichida(qavslar)soni()balansda") return true
@@ -505,8 +503,7 @@
 //     return count === 0;
 // }
 
-// console.log(areParenthesesBalanced("()string()ichida(qavslar)soni()balansda")); 
-
+// console.log(areParenthesesBalanced("()string()ichida(qavslar)soni()balansda"));
 
 // // MITask-ZP:
 // // MASALAN: countNumberAndLetters("string152%\¥") return {number:3, letter:6}
@@ -520,24 +517,36 @@
 
 // console.log(countNumbersAndLetters("string152%¥"));
 
-// MITask-ZO:
-// MASALAN: findDuplicates([1,2,3,4,5,4,3,4]) return [3, 4].
+// // MITask-ZQ:
+// // MASALAN: findDuplicates([1,2,3,4,5,4,3,4]) return [3, 4].
 
-function findDuplicates(arr: number[]): number[] {
-  const countMap = new Map<number, number>();
-  const result: number[] = [];
+// function findDuplicates(arr: number[]): number[] {
+//   const countMap = new Map<number, number>();
+//   const result: number[] = [];
 
-  for (const num of arr) {
-    const count = (countMap.get(num) || 0) + 1;
-    countMap.set(num, count);
+//   for (const num of arr) {
+//     const count = (countMap.get(num) || 0) + 1;
+//     countMap.set(num, count);
 
-    if (count === 2) {
-      result.push(num);
-    }
-  }
+//     if (count === 2) {
+//       result.push(num);
+//     }
+//   }
 
-  return result;
+//   return result;
+// }
+
+// console.log(findDuplicates([1, 2, 3, 4, 5, 4, 3, 4, 3, 4, 2]));
+
+// MIask-ZR:
+// MASALAN: areArraysEqual([1, 2, 3], [3, 1, 2]) // true
+
+function areArraysEqual(arr1: number[], arr2: number[]): boolean {
+    if (arr1.length !== arr2.length) return false;
+    const sorted1 = [...arr1].sort((a, b) => a - b);
+    const sorted2 = [...arr2].sort((a, b) => a - b);
+
+    return sorted1.every((value, index) => value === sorted2[index]);
 }
 
-
-console.log(findDuplicates([1, 2, 3, 4, 5, 4, 3, 4, 3, 4, 2]));
+console.log(areArraysEqual([1, 2, 3], [3, 1, 2]));
