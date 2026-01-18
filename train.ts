@@ -538,15 +538,30 @@
 
 // console.log(findDuplicates([1, 2, 3, 4, 5, 4, 3, 4, 3, 4, 2]));
 
-// MIask-ZR:
-// MASALAN: areArraysEqual([1, 2, 3], [3, 1, 2]) // true
+// // MIask-ZR:
+// // MASALAN: areArraysEqual([1, 2, 3], [3, 1, 2]) // true
 
-function areArraysEqual(arr1: number[], arr2: number[]): boolean {
-    if (arr1.length !== arr2.length) return false;
-    const sorted1 = [...arr1].sort((a, b) => a - b);
-    const sorted2 = [...arr2].sort((a, b) => a - b);
+// function areArraysEqual(arr1: number[], arr2: number[]): boolean {
+//     if (arr1.length !== arr2.length) return false;
+//     const sorted1 = [...arr1].sort((a, b) => a - b);
+//     const sorted2 = [...arr2].sort((a, b) => a - b);
 
-    return sorted1.every((value, index) => value === sorted2[index]);
+//     return sorted1.every((value, index) => value === sorted2[index]);
+// }
+
+// console.log(areArraysEqual([1, 2, 3], [3, 1, 2]));
+
+
+// MITask-ZS:
+// MASALAN: singleNumber([4, 2, 1, 2, 1]) return 4.
+
+function singleNumber(nums: number[]): number{
+    let result = 0;
+
+    for (const num of nums){
+        result ^= num
+    }
+    return result
 }
 
-console.log(areArraysEqual([1, 2, 3], [3, 1, 2]));
+console.log(singleNumber([4, 2, 1, 2, 1, 4, 5]))
