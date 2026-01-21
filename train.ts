@@ -552,16 +552,38 @@
 // console.log(areArraysEqual([1, 2, 3], [3, 1, 2]));
 
 
-// MITask-ZS:
-// MASALAN: singleNumber([4, 2, 1, 2, 1]) return 4.
+// // MITask-ZS:
+// // MASALAN: singleNumber([4, 2, 1, 2, 1]) return 4.
 
-function singleNumber(nums: number[]): number{
-    let result = 0;
+// function singleNumber(nums: number[]): number{
+//     let result = 0;
 
-    for (const num of nums){
-        result ^= num
+//     for (const num of nums){
+//         result ^= num
+//     }
+//     return result
+// }
+
+// console.log(singleNumber([4, 2, 1, 2, 1, 4, 5]))
+
+
+// MITask-ZT:
+// MASALAN: firstUniqueCharIndex("stamp") return 0.
+
+function firstUniqueCharIndex(str: string): number {
+    const map = new Map<string, number>();
+  
+    for (const ch of str) {
+      map.set(ch, (map.get(ch) ?? 0) + 1);
     }
-    return result
-}
-
-console.log(singleNumber([4, 2, 1, 2, 1, 4, 5]))
+  
+    for (let i = 0; i < str.length; i++) {
+      if (map.get(str[i]) === 1) {
+        return i;
+      }
+    }
+    return -1;
+  }
+  
+console.log(firstUniqueCharIndex("stamp"))
+console.log(firstUniqueCharIndex("ssdiurdiu"))
