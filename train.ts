@@ -567,23 +567,35 @@
 // console.log(singleNumber([4, 2, 1, 2, 1, 4, 5]))
 
 
-// MITask-ZT:
-// MASALAN: firstUniqueCharIndex("stamp") return 0.
+// // MITask-ZT:
+// // MASALAN: firstUniqueCharIndex("stamp") return 0.
 
-function firstUniqueCharIndex(str: string): number {
-    const map = new Map<string, number>();
+// function firstUniqueCharIndex(str: string): number {
+//     const map = new Map<string, number>();
   
-    for (const ch of str) {
-      map.set(ch, (map.get(ch) ?? 0) + 1);
-    }
+//     for (const ch of str) {
+//       map.set(ch, (map.get(ch) ?? 0) + 1);
+//     }
   
-    for (let i = 0; i < str.length; i++) {
-      if (map.get(str[i]) === 1) {
-        return i;
-      }
-    }
-    return -1;
+//     for (let i = 0; i < str.length; i++) {
+//       if (map.get(str[i]) === 1) {
+//         return i;
+//       }
+//     }
+//     return -1;
+//   }
+  
+// console.log(firstUniqueCharIndex("stamp"))
+// console.log(firstUniqueCharIndex("ssdiurdiu"))
+
+
+// MITask-ZU:
+// MASALAN: sumOfUnique([1,2,3,2]) return 4.
+
+function sumOfUnique(arr: number[]): number {
+    return arr
+      .filter(num => arr.indexOf(num) === arr.lastIndexOf(num))
+      .reduce((sum, num) => sum + num, 0);
   }
   
-console.log(firstUniqueCharIndex("stamp"))
-console.log(firstUniqueCharIndex("ssdiurdiu"))
+console.log(sumOfUnique([1,2,3,2,3]) )
