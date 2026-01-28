@@ -572,11 +572,11 @@
 
 // function firstUniqueCharIndex(str: string): number {
 //     const map = new Map<string, number>();
-  
+
 //     for (const ch of str) {
 //       map.set(ch, (map.get(ch) ?? 0) + 1);
 //     }
-  
+
 //     for (let i = 0; i < str.length; i++) {
 //       if (map.get(str[i]) === 1) {
 //         return i;
@@ -584,18 +584,35 @@
 //     }
 //     return -1;
 //   }
-  
+
 // console.log(firstUniqueCharIndex("stamp"))
 // console.log(firstUniqueCharIndex("ssdiurdiu"))
 
 
-// MITask-ZU:
-// MASALAN: sumOfUnique([1,2,3,2]) return 4.
+// // MITask-ZU:
+// // MASALAN: sumOfUnique([1,2,3,2]) return 4.
 
-function sumOfUnique(arr: number[]): number {
-    return arr
-      .filter(num => arr.indexOf(num) === arr.lastIndexOf(num))
-      .reduce((sum, num) => sum + num, 0);
+// function sumOfUnique(arr: number[]): number {
+//     return arr
+//       .filter(num => arr.indexOf(num) === arr.lastIndexOf(num))
+//       .reduce((sum, num) => sum + num, 0);
+//   }
+
+// console.log(sumOfUnique([1,2,3,2,3]) )
+
+
+// MITask-ZV:
+// MASALAN: moveZeroes([0, 1, 0, 3, 12]) return [1, 3, 12, 0, 0]
+
+function moveZeroes(nums: number[]): number[] {
+  const result: number[] = [];
+  let zeroCount = 0;
+  for (const num of nums) {
+    if (num === 0) zeroCount++;
+    else result.push(num);
   }
-  
-console.log(sumOfUnique([1,2,3,2,3]) )
+  return result.concat(Array(zeroCount).fill(0));
+}
+
+
+console.log(moveZeroes([0, 1, 0, 3, 12]))
